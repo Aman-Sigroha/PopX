@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_ENDPOINTS } from '../../utils/api';
 import './RegisterCard.css';
 
 const RegisterCard = () => {
@@ -78,7 +79,7 @@ const RegisterCard = () => {
     if (!isFormValid) return;
 
     try {
-      const response = await fetch('https://popx-server.onrender.com/register', {
+      const response = await fetch(API_ENDPOINTS.REGISTER, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +96,8 @@ const RegisterCard = () => {
 
       if (response.ok) {
         // Handle successful registration
-        console.log('Registration successful');
+        alert('Registration successful! Redirecting to login page...');
+        window.location.href = '/signin';
       } else {
         // Handle registration error
         console.error('Registration failed');

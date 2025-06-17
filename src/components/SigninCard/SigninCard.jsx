@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { API_ENDPOINTS } from '../../utils/api';
 import './SigninCard.css';
+import { useNavigate } from 'react-router-dom';
 
 const SigninCard = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const navigate = useNavigate();
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -30,7 +33,7 @@ const SigninCard = () => {
     if (!isFormValid) return;
 
     try {
-      const response = await fetch('https://popx-server.onrender.com/login', {
+      const response = await fetch(API_ENDPOINTS.LOGIN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,10 +43,11 @@ const SigninCard = () => {
 
       if (response.ok) {
         // Handle successful login
+        navigate('/account-settings');
       } else {
         // Handle login error
       }
-    } catch (error) {
+    } catch {
       // Handle network error
     }
   };

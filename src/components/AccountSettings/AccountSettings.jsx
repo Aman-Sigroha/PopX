@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../../utils/api';
 import './AccountSettings.css';
 
 const AccountSettings = () => {
@@ -10,7 +11,7 @@ const AccountSettings = () => {
   useEffect(() => {
     const fetchProfileImage = async () => {
       try {
-        const response = await fetch(`https://popx-server.onrender.com/profile-picture/${userId}`);
+        const response = await fetch(API_ENDPOINTS.PROFILE_PICTURE(userId));
         if (response.ok) {
           const blob = await response.blob();
           const imageUrl = URL.createObjectURL(blob);
@@ -40,18 +41,16 @@ const AccountSettings = () => {
     if (file) {
       const formData = new FormData();
       formData.append('profile_picture', file); 
-      formData.append('userId', userId); // Use the defined userId
+      formData.append('userId', userId);
 
       try {
-        const response = await fetch('https://popx-server.onrender.com/upload-profile-picture', {
+        const response = await fetch(API_ENDPOINTS.UPLOAD_PROFILE_PICTURE, {
           method: 'POST',
           body: formData,
         });
 
         if (response.ok) {
-          // const data = await response.json(); // Data from initial upload response is not used
-          // After successful upload, re-fetch the image to update the display
-          const imageResponse = await fetch(`https://popx-server.onrender.com/profile-picture/${userId}`);
+          const imageResponse = await fetch(API_ENDPOINTS.PROFILE_PICTURE(userId));
           if (imageResponse.ok) {
             const blob = await imageResponse.blob();
             const imageUrl = URL.createObjectURL(blob);
