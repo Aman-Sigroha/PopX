@@ -33,6 +33,7 @@ const SigninCard = () => {
     if (!isFormValid) return;
 
     try {
+      console.log('Login URL:', API_ENDPOINTS.LOGIN);
       const response = await fetch(API_ENDPOINTS.LOGIN, {
         method: 'POST',
         headers: {
