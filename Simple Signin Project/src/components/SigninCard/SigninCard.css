@@ -1,0 +1,220 @@
+.signin-card {
+  width: 100%;
+  max-width: 350px;
+  min-height: 280px;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 2.5rem 1.5rem 2.5rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 3%;
+}
+
+.signin-text {
+  max-width: 90%;
+  padding-right: 1.5rem;
+  text-align: left;
+}
+
+.signin-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #232323;
+  margin-bottom: 0.3rem;
+  text-align: left;
+}
+
+.signin-subtitle {
+  font-size: 1rem;
+  color: #7a7a7a;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.input-label {
+  font-size: 0.95rem;
+  color: #6C47FF;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.input-field {
+  padding: 0.7rem 0.8rem;
+  border: 1.5px solid #e5e5e5;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fafafa;
+  color: #232323;
+  outline: none;
+  transition: border 0.2s;
+}
+.input-field:focus {
+  border-color: #6C47FF;
+}
+
+.input-field.input-error {
+  border-color: #f44336;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+  text-align: left;
+}
+
+.login-btn {
+  background: #e5e5e5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  margin-top: 0.5rem;
+  width: 100%;
+  opacity: 1;
+}
+.login-btn:disabled {
+  background: #e5e5e5;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.login-btn-active {
+  background: #6C47FF;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-btn-active:hover {
+  background: #5936d9;
+}
+
+/* Hide default password reveal button for Edge */
+input[type="password"]::-ms-reveal {
+  display: none !important;
+}
+
+/* Hide the default eye icon for Webkit and Firefox browsers */
+.password-wrapper .input-field {
+  -webkit-appearance: none !important; /* For Chrome/Safari */
+  -moz-appearance: none !important;    /* For Firefox */
+  appearance: none !important;         /* Standard property */
+  background-image: none !important;   /* To remove any default eye icon as background */
+  background: none !important;         /* General background reset */
+}
+
+/* General rules to hide any password toggle functionality */
+input[type="password"]::-webkit-outer-spin-button,
+input[type="password"]::-webkit-inner-spin-button,
+input[type="password"]::-webkit-search-cancel-button,
+input[type="password"]::-webkit-search-decoration,
+input[type="password"]::-webkit-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-password-reveal, /* Specific for Chrome/Safari password reveal */
+input[type="password"]::-webkit-contacts-auto-fill-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  background-image: none !important; /* Ensure no background images */
+  background: none !important;
+}
+
+/* Ensure placeholder is visible and text-security is not interfering */
+input[type="password"]::-moz-placeholder {
+    opacity: 1 !important;
+}
+input[type="password"] {
+  outline: none !important;
+  padding-right: 2.5rem !important; /* Keep your custom icon space */
+  background: none !important; /* Final attempt to clear any default background */
+  background-image: none !important;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper .input-field {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #6C47FF;
+  background: transparent;
+  border: none;
+  padding: 0;
+  height: 100%;
+  z-index: 2; /* Ensure our custom icon is on top */
+}
+.eye-icon svg {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .signin-card {
+    max-width: 320px;
+    padding: 2rem 1rem 2rem 1rem;
+    min-height: 240px;
+  }
+  .signin-text {
+    max-width: 100%;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .signin-card {
+    max-width: 95vw;
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    min-height: 180px;
+  }
+  .signin-text {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+  }
+  .signin-title {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 400px) {
+  .signin-card {
+    max-width: 99vw;
+    padding: 0.7rem 0.1rem 0.7rem 0.1rem;
+    min-height: 100px;
+  }
+  .signin-text {
+    max-width: 98%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .signin-title {
+    font-size: 1rem;
+  }
+} 

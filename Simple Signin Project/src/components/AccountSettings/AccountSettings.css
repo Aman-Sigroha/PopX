@@ -1,0 +1,222 @@
+.account-settings-container {
+  width: 100%;
+  max-width: 350px; /* Consistent with other cards */
+  min-height: 280px; /* Consistent with other cards */
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 3%; /* Push down slightly, consistent with other cards */
+}
+
+.settings-header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #232323;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.profile-image-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: visible; /* Changed to visible so camera icon can extend outside */
+  flex-shrink: 0;
+  background-color: #e0e0e0; /* Background for the default icon area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.default-profile-icon {
+  width: 70%; /* Adjust size of the SVG within the wrapper */
+  height: 70%;
+  fill: #B0B0B0; /* Ensure the fill color is applied if not already in SVG */
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; /* Add border-radius to the image itself */
+}
+
+.camera-icon-overlay {
+  position: absolute;
+  bottom: -5px; /* Negative positioning to extend outside the circle */
+  right: -5px; /* Negative positioning to extend outside the circle */
+  background: #6C47FF;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fafafa; /* Matches background */
+  cursor: pointer;
+  z-index: 10; /* Ensure it's on top of other elements */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add subtle shadow */
+}
+
+.camera-icon-overlay svg {
+  width: 12px;
+  height: 12px;
+}
+
+.user-info {
+  text-align: left;
+}
+
+.user-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #232323;
+  margin-bottom: 0.2rem;
+}
+
+.user-email {
+  font-size: 0.9rem;
+  color: #7a7a7a;
+}
+
+.description-text {
+  font-size: 0.95rem;
+  color: #7a7a7a;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Responsive adjustments for the account settings card */
+@media (max-width: 900px) {
+  .account-settings-container {
+    max-width: 320px;
+    padding: 2rem 1rem;
+    min-height: 240px;
+  }
+  .settings-header {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .profile-section {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .profile-image-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+  .default-profile-icon {
+    width: 65%;
+    height: 65%;
+  }
+  .camera-icon-overlay {
+    width: 22px;
+    height: 22px;
+    bottom: -4px;
+    right: -4px;
+  }
+  .camera-icon-overlay svg {
+    width: 10px;
+    height: 10px;
+  }
+  .user-name {
+    font-size: 1.1rem;
+  }
+  .user-email {
+    font-size: 0.85rem;
+  }
+  .description-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .account-settings-container {
+    max-width: 95vw;
+    padding: 1.2rem 0.5rem;
+    min-height: 180px;
+  }
+  .settings-header {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .profile-image-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  .default-profile-icon {
+    width: 60%;
+    height: 60%;
+  }
+  .camera-icon-overlay {
+    width: 20px;
+    height: 20px;
+    bottom: -3px;
+    right: -3px;
+  }
+  .camera-icon-overlay svg {
+    width: 9px;
+    height: 9px;
+  }
+  .user-name {
+    font-size: 1rem;
+  }
+  .user-email {
+    font-size: 0.8rem;
+  }
+  .description-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .account-settings-container {
+    min-height: 150px;
+    padding: 1rem 0.5rem;
+  }
+  .settings-header {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .profile-image-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  .default-profile-icon {
+    width: 55%;
+    height: 55%;
+  }
+  .camera-icon-overlay {
+    width: 18px;
+    height: 18px;
+    bottom: -2px;
+    right: -2px;
+  }
+  .camera-icon-overlay svg {
+    width: 8px;
+    height: 8px;
+  }
+  .user-name {
+    font-size: 0.9rem;
+  }
+  .user-email {
+    font-size: 0.75rem;
+  }
+  .description-text {
+    font-size: 0.8rem;
+  }
+}
