@@ -43,7 +43,8 @@ const SigninCard = () => {
       });
 
       if (response.ok) {
-        // Handle successful login
+        const data = await response.json();
+        localStorage.setItem('user', JSON.stringify(data.user));
         navigate('/account-settings');
       } else {
         // Handle login error

@@ -4,8 +4,16 @@ import './AccountSettings.css';
 
 const AccountSettings = () => {
   const [profileImage, setProfileImage] = useState(null);
+  const [user, setUser] = useState({ fullname: '', email: '' });
   // For demonstration, let's assume a fixed userId. In a real app, this would come from your authentication context.
   const userId = 1; 
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   // Fetch profile image on component mount
   useEffect(() => {
@@ -97,8 +105,8 @@ const AccountSettings = () => {
           </div>
         </div>
         <div className="user-info">
-          <p className="user-name">Marry Doe</p>
-          <p className="user-email">Marry@Gmail.com</p>
+          <p className="user-name">{user.fullname}</p>
+          <p className="user-email">{user.email}</p>
         </div>
       </div>
       <p className="description-text">
